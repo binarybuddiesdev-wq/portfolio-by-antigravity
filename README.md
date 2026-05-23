@@ -1,4 +1,4 @@
-# Premium React Developer Portfolio
+# Premium Portfolio
 
 ![Portfolio Preview](./preview.png)
 
