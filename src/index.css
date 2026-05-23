@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+@import "tailwindcss";
+
+/* Custom dark mode variant for Tailwind v4 class-based support */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-display: 'Outfit', sans-serif;
+  --color-bg-dark: #030303;
+  --color-card-dark: #0a0a0c;
+  --color-accent-purple: #8b5cf6;
+  --color-accent-indigo: #6366f1;
+  --color-border-dark: #1f1f23;
+  --color-text-muted: #8e8e9f;
+}
+
+:root {
+  --bg-color: #fafafa;
+  --text-color: #1a1a1e;
+  --text-muted-color: #6e6e73;
+  --border-color: rgba(0, 0, 0, 0.06);
+  --card-bg: rgba(255, 255, 255, 0.7);
+  --selection-bg: rgba(139, 92, 246, 0.15);
+  --selection-text: #8b5cf6;
+  --scrollbar-track: #fafafa;
+  --scrollbar-thumb: #e2e2e7;
+  --scrollbar-thumb-hover: #d1d1d6;
+  --spotlight-color-1: rgba(99, 102, 241, 0.04);
+  --spotlight-color-2: rgba(139, 92, 246, 0.01);
+  --grid-line-color: rgba(0, 0, 0, 0.04);
+  --glow-opacity: 0.2;
+  --card-glare: rgba(0, 0, 0, 0.015);
+}
+
+.dark {
+  --bg-color: #030303;
+  --text-color: #f3f4f6;
+  --text-muted-color: #8e8e9f;
+  --border-color: rgba(255, 255, 255, 0.05);
+  --card-bg: rgba(10, 10, 12, 0.6);
+  --selection-bg: rgba(139, 92, 246, 0.3);
+  --selection-text: #ffffff;
+  --scrollbar-track: #030303;
+  --scrollbar-thumb: #1f1f23;
+  --scrollbar-thumb-hover: #2f2f35;
+  --spotlight-color-1: rgba(99, 102, 241, 0.12);
+  --spotlight-color-2: rgba(139, 92, 246, 0.03);
+  --grid-line-color: rgba(255, 255, 255, 0.03);
+  --glow-opacity: 0.40;
+  --card-glare: rgba(255, 255, 255, 0.04);
+}
+
+/* Custom Styles */
+html, body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--font-sans);
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+  transition: background-color 0.3s ease;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+}
+
+/* Custom selection */
+::selection {
+  background: var(--selection-bg);
+  color: var(--selection-text);
+}
+
+/* Glassmorphism */
+.glass {
+  background: var(--card-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-color);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Hide default cursor on desktop device when active */
+@media (min-width: 768px) {
+  .custom-cursor-active {
+    cursor: none;
+  }
+  .custom-cursor-active a, 
+  .custom-cursor-active button,
+  .custom-cursor-active input,
+  .custom-cursor-active textarea,
+  .custom-cursor-active [role="button"] {
+    cursor: none;
+  }
+}
